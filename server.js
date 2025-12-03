@@ -16,7 +16,15 @@ import clientReviewRoutes from "./src/routes/clientReview.routes.js";
 dotenv.config();
 
 const app = express();
-app.use(cors());                 // Allow frontend (5173) to call API
+const allowedOrigins = [
+    "https://rs-tours-and-travels.vercel.app",
+    "https://www.rs-toursandtravels.com",
+    "http://localhost:5173"
+];
+app.use(cors({
+    origin: allowedOrigins,
+    credentials: true
+}));                // Allow frontend (5173) to call API
 app.use(express.json({ limit: "20mb" })); // allow base64 images
 app.use("/api/auth", authRoutes);
 
