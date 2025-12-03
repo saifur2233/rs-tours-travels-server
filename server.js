@@ -10,6 +10,8 @@ import emailRoutes from "./src/routes/email.routes.js";
 import addressRoutes from "./src/routes/address.routes.js";
 import socialRoutes from "./src/routes/social.routes.js";
 import authRoutes from "./src/routes/auth.routes.js";
+import serviceRoutes from "./src/routes/service.routes.js";
+import clientReviewRoutes from "./src/routes/clientReview.routes.js";
 
 dotenv.config();
 
@@ -28,6 +30,8 @@ app.use("/api/logo", logoRoutes);
 app.use("/api/email", emailRoutes);
 app.use("/api/address", addressRoutes);
 app.use("/api/social-links", socialRoutes);
+app.use("/api/services", serviceRoutes);
+app.use("/api/client-reviews", clientReviewRoutes);
 
 const PORT = process.env.PORT || 4000;
 connectDB().then(() => {
